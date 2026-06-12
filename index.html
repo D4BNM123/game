@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Baklava Kitchen — Cooking Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <h1 id="title">Baklava Kitchen</h1>
+      <div class="controls">
+        <button id="toggle-contrast" aria-pressed="false">High Contrast</button>
+        <button id="toggle-simplified" aria-pressed="false">Simplified Controls</button>
+        <label for="scale-range">Text size</label>
+        <input id="scale-range" type="range" min="12" max="24" value="16" />
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <section id="menu" class="screen">
+        <div class="menu-column">
+          <h2>Play</h2>
+          <button id="start-btn" class="primary">Start New Run</button>
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+          </select>
+          <h3>Unlocked Recipes</h3>
+          <div id="recipes-list" class="recipes-list"></div>
+        </div>
+
+        <div class="menu-column">
+          <h2>Progress</h2>
+          <div id="progress-info">No runs yet.</div>
+          <button id="reset-progress">Reset Progress</button>
+        </div>
+      </section>
+
+      <section id="game-screen" class="screen hidden" aria-hidden="true">
+        <div id="hud" class="hud">
+          <div id="phase-label" class="phase-label">Phase</div>
+          <div id="precision-meter" class="meter">Precision: <span id="precision-value">0</span></div>
+          <div id="timer" class="timer">00:00</div>
+        </div>
+
+        <canvas id="game-canvas" width="800" height="480" aria-label="Baklava game canvas"></canvas>
+
+        <div id="game-controls" class="game-controls">
+          <button id="action-btn">Action</button>
+          <button id="next-btn" class="primary">Next</button>
+          <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="results-screen" class="screen hidden" aria-hidden="true">
+        <h2>Results</h2>
+        <div id="score-breakdown" class="score-breakdown"></div>
+        <button id="play-again" class="primary">Play Again</button>
+        <button id="back-to-menu">Back to Menu</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Baklava Kitchen — Demo. Local play only. Replace placeholder assets in /assets.</small>
+    </footer>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
